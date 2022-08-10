@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div#img {
+            width: 40px;
+            height: 40px;
+            background-image: url("/eye.jpg");
+            background-size: 70%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            top: -6px;
+            right: -5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/ex/userLogin" method="post" name="loginForm">
+        <div>
+            <input type="text" name="userId" placeholder="아이디를 입력하세요">
+            <p id="checkId"></p>
+        </div>
+        <div style="position: relative; width: fit-content;">
+            <input type="password" name="userPw" placeholder="패스워드를 입력하세요">
+            <p id="checkPw"></p>
+            <div id="img" style="position: absolute"></div>
+        </div>
+        <div>
+            <input type="button" value="로그인" onclick="send()">
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    $("div#img").click(function(){
+        const $input = $("input[name='userPw']");
+        if($input.attr("type") == "password"){
+            $input.attr("type", "text");
+            $(this).css("background-image", "url('/eye_half.png')");
+        }else{
+            $input.attr("type", "password");
+            $(this).css("background-image", "url('/eye.jpg')");
+        }
+    })
+
+    function send(){
+        if(!loginForm.userId.value){
+            $("#checkId").text("아이디를 작성해주세요.");
+            $("#checkId").css("color", "red");
+            return;
+        }
+        if(!loginForm.userPw.value){
+            $("#checkPw").text("비밀번호를 작성해주세요.");
+            $("#checkPw").css("color", "red");
+            return;
+        }
+
+        loginForm.submit();
+    }
+</script>
+</html>

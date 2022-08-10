@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>leaveWork</title>
+</head>
+<body>
+<h1 th:object="${workVO}"> <!--th:object -> 부모-->
+    <span th:text="*{name} + '님 '" />퇴근 체크! <!--th:text ~ *{} -> 자식들-->
+</h1>
+</body>
+</html>

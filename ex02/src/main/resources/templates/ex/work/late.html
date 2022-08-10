@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>late</title>
+</head>
+<body>
+<h1 th:object="${workVO}"> <!--th:object -> 부모-->
+    <span th:text="*{name} + '님 '" />지각 입니다. <!--th:text ~ *{} -> 자식들-->
+</h1>
+</body>
+</html>
